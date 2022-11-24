@@ -17,6 +17,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"/>
         <EditText
+            android:id="@+id/EditKeyword"
             android:layout_width="220dp"
             android:layout_height="50dp"/>
         <Button
@@ -29,13 +30,56 @@
 
 
     </LinearLayout>
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RadioButton
+                android:layout_weight="1"
+                android:id="@+id/radioBtMN230"
+                android:text="MN230"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"/>
+
+            <RadioButton
+                android:layout_weight="1"
+                android:id="@+id/radioBtMN231"
+                android:text="MN231"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:layout_weight="1"
+                android:id="@+id/radioBtMN233"
+                android:text="MN233"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:layout_weight="1"
+                android:id="@+id/radioBtMN445"
+                android:text="MN445"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </RadioGroup>
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:textSize="24dp"
         android:textStyle="bold"
         android:layout_height="wrap_content"
         android:text="키워드 리스트"
+        android:id="@+id/title"
         />
+
 
     <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"

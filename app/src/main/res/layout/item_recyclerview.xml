@@ -17,8 +17,21 @@ android:orientation="vertical"
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/KeywordListCode"
+            android:layout_width="80dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:text="MN230"
+            />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:layout_margin="10dp"/>
+
+        <TextView
             android:id="@+id/KeywordList_Title"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:textSize="20dp"
             android:layout_height="wrap_content"
             android:text="키워드"

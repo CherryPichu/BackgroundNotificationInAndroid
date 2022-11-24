@@ -14,9 +14,10 @@ import kr.ac.hallym.backgroundnotice.databinding.ItemRecyclerviewBinding
 
 
 /**
- * @param (this, binding, )
+ * @param (this, 키워드 리스트, 게시판코드리스트)
+ * 키워드 요소들을 받아서 리사이클러 뷰에 추가하는 코드
  */
-class MyAdapter (val context : Context,  val contents : MutableList<String>) :
+class MyAdapter (val context : Context,  val contents : MutableList<String>, val keywordCode : MutableList<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -34,6 +35,7 @@ class MyAdapter (val context : Context,  val contents : MutableList<String>) :
         val binding = (holder as MyViewHolder).binding
         // 뷰에 데이터 출력
         binding.KeywordListTitle.text = contents[position]
+        binding.KeywordListCode.text = keywordCode[position]
         // 삭제 이벤트 추가.
         binding.KeywordListDelete.setOnClickListener{
             Log.d("namjung", "item root click : $position")
