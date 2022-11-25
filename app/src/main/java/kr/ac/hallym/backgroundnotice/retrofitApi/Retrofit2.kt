@@ -1,11 +1,10 @@
 package kr.ac.hallym.networkretrofit2.retrofitApi
 
-import android.content.Context
-import kr.ac.hallym.backgroundnotice.Controller.PostKeywordBody
+import kr.ac.hallym.backgroundnotice.model.PostKeywordBody
 import kr.ac.hallym.backgroundnotice.model.Keyword
-import kr.ac.hallym.networkretrofit2.Model.UserId
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -21,6 +20,13 @@ interface Retrofit2{
     fun postFunction(
         @Body PostKeywordBody : PostKeywordBody
     ) : Call<String>
+
+    @DELETE("/query/KEYWORD")
+    fun deleteFunction(
+        @Query("userid") userid: Int,
+        @Query("keyword") keyword : String
+    ) : Call<String>
+
 
 
 

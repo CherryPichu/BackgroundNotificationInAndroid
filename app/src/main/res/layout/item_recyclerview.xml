@@ -43,6 +43,7 @@ android:orientation="vertical"
             android:layout_height="match_parent"
             android:text="제거"
             />
+
     </LinearLayout>
 
 </LinearLayout>

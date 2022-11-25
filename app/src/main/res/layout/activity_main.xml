@@ -19,7 +19,9 @@
         <EditText
             android:id="@+id/EditKeyword"
             android:layout_width="220dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:singleLine="true"
+            android:lines="1"/>
         <Button
             android:id="@+id/buttonSendKeyword"
             android:layout_marginLeft="30dp"

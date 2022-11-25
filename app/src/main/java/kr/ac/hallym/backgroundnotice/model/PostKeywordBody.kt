@@ -1,4 +1,4 @@
-package kr.ac.hallym.backgroundnotice.Controller
+package kr.ac.hallym.backgroundnotice.model
 
 /**
  * Keywod를 업데이트할 때 사용할 Post Body 구조
