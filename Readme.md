@@ -12,7 +12,7 @@
 - 웹 DB에 키워드를 추가 (CREATE)
 - 웹 DB에 키워드 삭제 (DELETE)
 - 내부 SQLite 테이블 초기화
-  <img width="200" alt = "작동화면" src="./src/22_11_27첫번째시연동작.gif>
+<img width="200" alt = "작동화면" src="./src/22_11_27첫번째시연동작.gif>
 
 #### 완성되지 못한 기능
 - Job 스케줄러로 웹에 키워드 알람 Request 요청 보내기
