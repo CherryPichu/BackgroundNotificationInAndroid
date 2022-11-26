@@ -100,14 +100,13 @@ class KeywordList(val context: Context, val binding : ActivityMainBinding) {
                 }
             })
 
-            val handler = android.os.Handler()
-            handler.postDelayed({
-                getKeywordList()
-            }, 500)
+//            val handler = android.os.Handler()
+//            handler.postDelayed({
+//                getKeywordList()
+//            }, 500)
 
 
         }
-
 
 
 

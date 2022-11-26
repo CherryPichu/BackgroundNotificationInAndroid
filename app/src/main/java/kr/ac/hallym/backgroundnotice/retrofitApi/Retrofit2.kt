@@ -2,6 +2,7 @@ package kr.ac.hallym.networkretrofit2.retrofitApi
 
 import kr.ac.hallym.backgroundnotice.model.PostKeywordBody
 import kr.ac.hallym.backgroundnotice.model.Keyword
+import kr.ac.hallym.backgroundnotice.model.UserResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -28,6 +29,8 @@ interface Retrofit2{
     ) : Call<String>
 
 
-
+    @POST("/query/USER")
+    fun getUser(
+    ) : Call<UserResponse>
 
 }

@@ -33,8 +33,7 @@ class MyAdapter(val context: Context, val contents: MutableList<String>, val key
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = MyViewHolder(
         ItemRecyclerviewBinding.inflate(LayoutInflater.from( parent.context ), parent, false))
-
-
+    
     override fun getItemCount(): Int {
 //        Log.d("namjung", "init contents size : ${contents.size}")
         return contents.size
