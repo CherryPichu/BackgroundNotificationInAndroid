@@ -17,7 +17,8 @@
 #### (서버 로직 미완성)
 - Job 스케줄러로 웹에 키워드 알람 Request 요청 보내기
 - 위의 요청을 받고 응답을 알람을 띄어줌
-  <img width="200" alt = "작동화면" src="./알람기능.gif">
+- 
+<img width="200" alt = "작동화면" src="./알람기능.gif">
 
 #### 안드로이드 특정 주기로 계속 동작 방법
 - url : https://wfreud.tistory.com/378
