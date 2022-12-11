@@ -1,5 +1,6 @@
 package kr.ac.hallym.networkretrofit2.retrofitApi
 
+import kr.ac.hallym.backgroundnotice.model.BackgroundResponeDto
 import kr.ac.hallym.backgroundnotice.model.PostKeywordBody
 import kr.ac.hallym.backgroundnotice.model.Keyword
 import kr.ac.hallym.backgroundnotice.model.UserResponse
@@ -32,5 +33,10 @@ interface Retrofit2{
     @POST("/query/USER")
     fun getUser(
     ) : Call<UserResponse>
+
+    @GET("/BackgroundRequest")
+    fun getBackgroundRequest(
+        @Query("userid") userid: Int
+    ) : Call<BackgroundResponeDto>
 
 }

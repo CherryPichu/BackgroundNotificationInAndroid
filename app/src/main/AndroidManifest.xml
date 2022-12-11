@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -38,8 +39,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <service
+            android:name=".JobScheduler.MyJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
 
-
+            android:resource="@drawable/icon_small" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

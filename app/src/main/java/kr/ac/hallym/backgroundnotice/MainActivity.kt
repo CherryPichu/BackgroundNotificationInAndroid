@@ -1,6 +1,11 @@
 package kr.ac.hallym.backgroundnotice
 
 
+import android.annotation.TargetApi
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kr.ac.hallym.backgroundnotice.Controller.KeywordList
 import kr.ac.hallym.backgroundnotice.Controller.Recycler
+import kr.ac.hallym.backgroundnotice.JobScheduler.MyJobService
 import kr.ac.hallym.backgroundnotice.databinding.ActivityMainBinding
 import kr.ac.hallym.backgroundnotice.model.DatabaseHelper
 import kr.ac.hallym.backgroundnotice.model.Keyword
@@ -19,6 +25,7 @@ import kr.ac.hallym.networkretrofit2.Model.UserTable
 import kr.ac.hallym.networkretrofit2.retrofitApi.Retrofit2
 import kr.ac.hallym.networkretrofit2.retrofitApi.RetrofitInstance
 import retrofit2.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     private val binding : ActivityMainBinding by lazy{
@@ -35,6 +42,8 @@ class MainActivity : AppCompatActivity() {
     private val retrofit = RetrofitInstance.getInstance().create(Retrofit2::class.java) // 서비스 객체 생성
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        onCreateJobScheduler() // job 스케줄러 등록 15분 주기
+
         val keywordview = KeywordList(this, binding) // restapi 요청을 보낼 수 있는 클래스
 
 
@@ -85,9 +94,6 @@ class MainActivity : AppCompatActivity() {
 
         // navigation View 접근
         val headerView : View = binding.mainDrawerView.getHeaderView(0);
-        headerView.findViewById<Button>(R.id.Btn_jobstart).setOnClickListener {
-            displayMessage("account clicked")
-        }
 
         // user 테이블 제거
         headerView.findViewById<Button>(R.id.Btn_deleteUserDB).setOnClickListener {
@@ -114,7 +120,6 @@ class MainActivity : AppCompatActivity() {
                 postKeywordList(keywordBody)
 
         }
-
     }
 
     private fun displayMessage(message :String){
@@ -135,7 +140,6 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<String>, response: Response<String>) {
 
                 if(response.isSuccessful){
-
                     var keywordList: String? = response?.message();
                     Log.d("namjung", "onResponse 성공: " + keywordList?.toString());
                     getKeywordList()
@@ -189,9 +193,25 @@ class MainActivity : AppCompatActivity() {
 
 
         })
-
-
     }
+
+
+    /**
+     * 15분마다 jobscheduler 알람 실행
+     * onCreate -> onStartJob -> onDestroy 순으로 진행
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun onCreateJobScheduler(){
+        var jobScheduler : JobScheduler? = getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+        val builder = JobInfo.Builder(1, ComponentName(this, MyJobService::class.java))
+            .setPersisted(true)
+            .setPeriodic( TimeUnit.MINUTES.toMillis(15) ) // 15분마다 실행
+            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+        val jobInfo = builder.build()
+        jobScheduler!!.schedule(jobInfo)
+    }
+
+
 }
 
 

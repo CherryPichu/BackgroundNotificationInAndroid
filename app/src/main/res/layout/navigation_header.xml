@@ -35,40 +35,7 @@
         android:id="@+id/Btn_deleteUserDB"
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test notification"
-        android:id="@+id/Btn_notfication"
-        />
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/edituserid"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="set userid"
-        android:id="@+id/Btn_setuserid"
-        />
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="jobstart"
-        android:id="@+id/Btn_jobstart"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="jobstop"
-        android:id="@+id/Btn_jobstop"
-        />
 
 
 </LinearLayout>
