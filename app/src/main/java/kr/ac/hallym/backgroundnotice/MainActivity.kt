@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     private val retrofit = RetrofitInstance.getInstance().create(Retrofit2::class.java) // 서비스 객체 생성
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        onCreateJobScheduler() // job 스케줄러 등록 15분 주기
+
 
         val keywordview = KeywordList(this, binding) // restapi 요청을 보낼 수 있는 클래스
 
@@ -120,6 +120,7 @@ class MainActivity : AppCompatActivity() {
                 postKeywordList(keywordBody)
 
         }
+        onCreateJobScheduler() // job 스케줄러 등록 15분 주기
     }
 
     private fun displayMessage(message :String){

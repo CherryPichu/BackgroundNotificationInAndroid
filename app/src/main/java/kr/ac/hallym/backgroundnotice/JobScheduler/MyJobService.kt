@@ -34,6 +34,12 @@ class MyJobService : JobService() {
         /**
          * 유저 TABLE 에서 userid 가져오기
          */
+//        Log.d("namjung", "파이널 ")
+//        Log.d("namjung", "발표 : "+dbHelper.getAllData())
+        if(dbHelper.getAllData().isEmpty()){
+            return true;
+        }
+
         val userid = dbHelper.getAllData()[0].userid
 
         Log.d("namjung", "${userid} <- userid")
