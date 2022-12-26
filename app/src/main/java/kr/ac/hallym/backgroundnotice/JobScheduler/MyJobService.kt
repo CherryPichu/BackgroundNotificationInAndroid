@@ -42,7 +42,6 @@ class MyJobService : JobService() {
 
         val userid = dbHelper.getAllData()[0].userid
 
-        Log.d("namjung", "${userid} <- userid")
         /**
          * userid 기반으로 서버에 요청
          */
@@ -56,12 +55,18 @@ class MyJobService : JobService() {
                      * 결과의 텍스트를 받아옴
                      */
                     var res: BackgroundResponeDto? = response.body();
+                    Log.d("namjung", res?.title.toString());
+                    Log.d("namjung", res?.keyword.toString());
+                    Log.d("namjung", res.toString());
+                    Log.d("namjung", (res?.title == null).toString());
+
+
                     /**
                      * 알람 기능
                      */
                     val notify = Notification(this@MyJobService)
-                    notify.notification("키워드알람 : " + res?.title,"새로운 글 : " + res?.keyword);
-                    
+                    notify.notification("키워드알람 : " + res?.title,"게시판 : " + res?.keyword);
+
                 } else {
                     // 통신이 실패한 경우(응답코드 3xx, 4xx 등)
                     Log.d("namjung", "onResponse 실패")

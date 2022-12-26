@@ -208,11 +208,12 @@ class MainActivity : AppCompatActivity() {
             .setPersisted(true)
             .setPeriodic( TimeUnit.MINUTES.toMillis(15) ) // 15분마다 실행
             .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+
         val jobInfo = builder.build()
         jobScheduler!!.schedule(jobInfo)
+
+
     }
-
-
 }
 
 
